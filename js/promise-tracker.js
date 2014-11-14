@@ -8,7 +8,7 @@ if (apApp.settings.mode == 'dev') {
   apApp.settings.serverUrl = 'http://drupal7.dev/ap/';
 }
 else {
-  apApp.settings.serverUrl = 'http://www.americanpromise.org/';
+  apApp.settings.serverUrl = 'http://drupal7.dev/ap/';
 }
 apApp.settings.cron = '';
 apApp.settings.restUrl = apApp.settings.serverUrl + 'ap/rest/';
@@ -2915,7 +2915,7 @@ function _deleteReminderFromGoal(tx, winData) {
 
 // Action message
 function _messagePopup(message, error) {
-  /*var classes = 'msg';
+  var classes = 'msg';
   if (error) {
     classes += ' error';
   }
@@ -2928,7 +2928,7 @@ function _messagePopup(message, error) {
     $message.hide(200, function() {
       $(this).remove();
     });
-  }, 8000);*/
+  }, 8000);
 }
 
 // Fail functions
@@ -2936,8 +2936,7 @@ function _messagePopup(message, error) {
 // Transaction error callback
 function _errorHandler(err, errId) {
   $.mobile.loading('hide');
-  alert('ID: ' + errId + ', ERROR:' + JSON.stringify(err));
-  //_messagePopup('ID: ' + errId + ', ERROR:' + JSON.stringify(err), true);
+  _messagePopup('ID: ' + errId + ', ERROR:' + JSON.stringify(err), true);
 }
 
 function _getHtml(idx, dt, options) {
